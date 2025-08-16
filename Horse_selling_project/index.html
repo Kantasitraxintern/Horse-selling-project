@@ -2,12 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Umamusume · Characters (Mock)</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   </head>
   <body>
-    <div id="app"></div>
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="/vite.svg" alt="Logo" />
+        <span class="brand-title">Umamusume</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-link">Top</a>
+        <a href="#" class="nav-link">News</a>
+        <a href="#" class="nav-link active">Characters</a>
+        <a href="#" class="nav-link">Media</a>
+        <a href="#" class="cta">Play Now!</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="page-head">
+        <h1>Umamusume</h1>
+        <div class="controls">
+          <label class="select-wrap">
+            <span class="sr-only">Sort By</span>
+            <select id="sortSelect">
+              <option value="default">Sort By: Default</option>
+              <option value="az">Sort By: Name (A–Z)</option>
+              <option value="za">Sort By: Name (Z–A)</option>
+            </select>
+            <span class="select-icon">▾</span>
+          </label>
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="Search…" />
+            <button id="searchBtn" aria-label="Search">🔍</button>
+          </div>
+        </div>
+      </div>
+
+      <section id="grid" class="grid"></section>
+    </main>
+
+    <footer class="footer">
+      <small>Mock UI inspired by <a href="https://umamusume.com/characters/" target="_blank" rel="noreferrer">umamusume.com</a>. For demo use only.</small>
+    </footer>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
