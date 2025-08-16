@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "init-db": "node src/init_db.cjs",
-    "backend": "node src/backend.js",
+    "backend": "node src/backend.cjs",
     "frontend": "vite",
     "dev": "npm run init-db && concurrently \"npm run backend\" \"npm run frontend\""
   },

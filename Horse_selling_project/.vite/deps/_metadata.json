@@ -1,0 +1,15 @@
+{
+  "hash": "3f483da4",
+  "configHash": "15354d72",
+  "lockfileHash": "3f1e8dad",
+  "browserHash": "fa870c24",
+  "optimized": {
+    "papaparse": {
+      "src": "../../node_modules/papaparse/papaparse.min.js",
+      "file": "papaparse.js",
+      "fileHash": "83ffb0ca",
+      "needsInterop": true
+    }
+  },
+  "chunks": {}
+}
