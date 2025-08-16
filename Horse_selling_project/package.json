@@ -15,8 +15,10 @@
     "vite": "^7.1.2"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
     "express": "^4.21.2",
     "papaparse": "^5.5.3",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "tailwindcss": "^4.1.12"
   }
 }
