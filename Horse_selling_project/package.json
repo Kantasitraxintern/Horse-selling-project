@@ -4,12 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "init-db": "node src/init_db.cjs",
+    "backend": "node src/backend.js",
+    "frontend": "vite",
+    "dev": "npm run init-db && concurrently \"npm run backend\" \"npm run frontend\""
   },
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "typescript": "~5.8.3",
     "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "papaparse": "^5.5.3",
+    "sqlite3": "^5.1.7"
   }
 }

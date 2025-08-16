@@ -1,28 +1,55 @@
 import './style.css'
+import Papa from 'papaparse';
 
 type Character = {
   name: string;
   va: string;
   color: string;    // background color for the avatar block
+  image: string; // New field for image filename
 };
 
-// Minimal set from the screenshot
-const CHARACTERS: Character[] = [
-  { name: 'Special Week', va: 'Azumi Waki', color: '#ff8fb1' },
-  { name: 'Silence Suzuka', va: 'Marika Kohno', color: '#2ecc71' },
-  { name: 'Tokai Teio', va: 'Machico', color: '#4aa3ff' },
-  { name: 'Maruzensky', va: 'Lynn', color: '#ff6b6b' },
-  { name: 'Fuji Kiseki', va: 'Eriko Matsui', color: '#333e48' },
-  { name: 'Oguri Cap', va: 'Tomoyo Takayanagi', color: '#3da7ff' },
-  { name: 'Gold Ship', va: 'Hitomi Ueda', color: '#ff6464' },
-  { name: 'Vodka', va: 'Ayaka Ohashi', color: '#f5b700' },
-  { name: 'Daiwa Scarlet', va: 'Chisa Kimura', color: '#ff6aa8' },
-  { name: 'Taiki Shuttle', va: 'Yuka Otsubo', color: '#7ed957' },
-  { name: 'Grass Wonder', va: 'Rena Maeda', color: '#6b78ff' },
-  { name: 'Hishi Amazon', va: 'Yuiko Tatsumi', color: '#ff7a59' },
-  { name: 'Mejiro McQueen', va: 'Saori Oonishi', color: '#20d3d0' },
-  { name: 'El Condor Pasa', va: 'Minami Takahashi', color: '#ff8a00' },
-];
+// ลบ CHARACTERS เดิมและโหลดจาก CSV
+let CHARACTERS: Character[] = [];
+
+function loadCharactersFromCSV() {
+  fetch('./src/characters.csv')
+    .then(res => res.text())
+    .then(csvText => {
+      const result = Papa.parse(csvText, { header: true });
+      CHARACTERS = (result.data as Character[]).filter(c => c.name && c.image);
+      render(CHARACTERS);
+    });
+}
+
+// mapping ชื่อ character -> ไฟล์รูป (เหมือนเดิม)
+const CHARACTER_IMAGES: Record<string, string> = {
+  'Agnestachyon': 'agnestachyon_list.png',
+  'Air Groove': 'airgroove_list.png',
+  'Daiwa Scarlet': 'daiwascarlet_list.png',
+  'Fine Motion': 'finemotion_list.png',
+  'Fuji Kiseki': 'fujikiseki_list.png',
+  'Gold Ship': 'goldship_list.png',
+  'Grass Wonder': 'grasswonder_list.png',
+  'Haru Urara': 'haruurara_list.png',
+  'King Halo': 'kinghalo_list.png',
+  'Maruzensky': 'maruzensky_list.png',
+  'Mayano Top Gun': 'mayanotopgun_list.png',
+  'Mejiro McQueen': 'mejiromcqueen_list.png',
+  'Mejiro Ryan': 'mejiroryan_list.png',
+  'Mihono Bourbon': 'mihonobourbon_list.png',
+  'Nice Nature': 'nicenature_list.png',
+  'Oguri Cap': 'oguricap_list.png',
+  'Rice Shower': 'riceshower_01_list.png',
+  'Sakura Bakushin O': 'sakurabakushino_list.png',
+  'Silence Suzuka': 'silencesuzuka_list.png',
+  'Special Week': 'specialweek_list.png',
+  'Super Creek': 'supercreek_list.png',
+  'Symboli Rudolf': 'symbolirudolf_list.png',
+  'Taiki Shuttle': 'taikishuttle_list.png',
+  'TM Opera O': 'tmoperao_list.png',
+  'Tokai Teio': 'tokaiteio_list.png',
+  'Vodka': 'vodka_list.png',
+};
 
 const grid = document.querySelector<HTMLDivElement>('#grid')!;
 const searchInput = document.querySelector<HTMLInputElement>('#searchInput')!;
@@ -53,9 +80,29 @@ function avatarDataURL(name: string, color: string): string {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
 
+function showCharacterDetail(name: string) {
+  const c = CHARACTERS.find(x => x.name === name);
+  if (!c) return;
+  grid.innerHTML = `
+    <div class="detail-card">
+      <button class="back-btn" onclick="window.location.hash=''">← Back</button>
+      <div class="detail-thumb"><img src='./src/image/${c.image}' alt="${c.name}" /></div>
+      <h2>${c.name}</h2>
+      <p><b>VA:</b> ${c.va}</p>
+      <p><b>Color:</b> <span style='background:${c.color};padding:0 1em;border-radius:4px;'>${c.color}</span></p>
+    </div>
+  `;
+}
+
 function cardTemplate(c: Character): string {
-  const img = avatarDataURL(c.name, c.color);
-  return `<article class="card" tabindex="0" aria-label="${c.name} card">
+  let img: string;
+  const imgFile = CHARACTER_IMAGES[c.name];
+  if (imgFile) {
+    img = `./src/image/${imgFile}`;
+  } else {
+    img = avatarDataURL(c.name, c.color);
+  }
+  return `<article class="card" tabindex="0" aria-label="${c.name} card" onclick="window.location.hash='#/character/${encodeURIComponent(c.name)}'">
     <div class="card-thumb" style="background:${c.color}">
       <img alt="${c.name}" src="${img}" />
       <div class="border"></div>
@@ -82,10 +129,21 @@ function getFilteredSorted(): Character[] {
   return list;
 }
 
+function handleHashChange() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#/character/')) {
+    const name = decodeURIComponent(hash.replace('#/character/', ''));
+    showCharacterDetail(name);
+  } else {
+    render(getFilteredSorted());
+  }
+}
+
 // events
 searchInput.addEventListener('input', () => render(getFilteredSorted()));
 searchBtn.addEventListener('click', () => render(getFilteredSorted()));
 sortSelect.addEventListener('change', () => render(getFilteredSorted()));
 
+window.addEventListener('hashchange', handleHashChange);
 // first paint
-render(CHARACTERS);
+loadCharactersFromCSV();
