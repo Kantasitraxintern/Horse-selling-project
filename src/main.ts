@@ -3,7 +3,7 @@ import { Character, SortOption } from './types';
 import { CsvService } from './services/csvService';
 import { cartService } from './services/cartService';
 import { CharacterCard } from './components/CharacterCard';
-import { CartModal } from './components/CartModal';
+import { CartDialog } from './components/CartDialog';
 import { CharacterDetail } from './components/CharacterDetail';
 import { filterAndSortCharacters } from './utils/helpers';
 
@@ -13,13 +13,14 @@ class UmamusumeApp {
   private searchInput: HTMLInputElement;
   private searchBtn: HTMLButtonElement;
   private sortSelect: HTMLSelectElement;
+  private cartDialog: CartDialog;
 
   constructor() {
     this.grid = document.querySelector<HTMLDivElement>('#grid')!;
     this.searchInput = document.querySelector<HTMLInputElement>('#searchInput')!;
     this.searchBtn = document.querySelector<HTMLButtonElement>('#searchBtn')!;
     this.sortSelect = document.querySelector<HTMLSelectElement>('#sortSelect')!;
-    
+    this.cartDialog = new CartDialog();
     this.initializeApp();
   }
 
@@ -30,6 +31,7 @@ class UmamusumeApp {
     this.render();
     this.addGlobalFunctions();
     this.addStyles();
+    this.setupCartDialogEvents();
   }
 
   private async loadCharacters(): Promise<void> {
@@ -41,8 +43,6 @@ class UmamusumeApp {
     this.searchBtn.addEventListener('click', () => this.render());
     this.sortSelect.addEventListener('change', () => this.render());
     window.addEventListener('hashchange', () => this.handleHashChange());
-    
-    // Cart button
     document.getElementById('cartBtn')?.addEventListener('click', () => this.showCartModal());
   }
 
@@ -52,21 +52,58 @@ class UmamusumeApp {
 
   private showCartModal(): void {
     const cartItems = cartService.getCartItems();
-    const modal = document.createElement('div');
-    modal.innerHTML = CartModal.render(cartItems);
-    document.body.appendChild(modal);
+    this.cartDialog.show(cartItems, () => {});
+  }
 
-    const closeModal = () => modal.remove();
-    
-    modal.querySelector('#closeCartModal')?.addEventListener('click', closeModal);
-    modal.querySelector('#closeCartModal2')?.addEventListener('click', closeModal);
-    
-    modal.querySelector('#checkoutBtn')?.addEventListener('click', () => {
-      if (cartService.getTotalItems() === 0) return;
-      alert('ขอบคุณที่ซื้อสินค้า!');
-      cartService.clearCart();
-      closeModal();
+  private setupCartDialogEvents(): void {
+    window.addEventListener('cartAction', (e: any) => {
+      const { action, data } = e.detail;
+      switch (action) {
+        case 'remove':
+          cartService.removeFromCart(data.name);
+          this.refreshCartDialog();
+          break;
+        case 'increase': {
+          const item = cartService.getCart()[data.name];
+          if (item) {
+            cartService.updateQuantity(data.name, item.qty + 1);
+            this.refreshCartDialog();
+          }
+          break;
+        }
+        case 'decrease': {
+          const item = cartService.getCart()[data.name];
+          if (item) {
+            if (item.qty > 1) {
+              cartService.updateQuantity(data.name, item.qty - 1);
+            } else {
+              cartService.removeFromCart(data.name);
+            }
+            this.refreshCartDialog();
+          }
+          break;
+        }
+        case 'clearCart':
+          cartService.clearCart();
+          this.cartDialog.hide();
+          break;
+        case 'checkout':
+          if (cartService.getTotalItems() === 0) return;
+          alert('ขอบคุณที่ซื้อสินค้า!');
+          cartService.clearCart();
+          this.cartDialog.hide();
+          break;
+      }
     });
+  }
+
+  private refreshCartDialog(): void {
+    const cartItems = cartService.getCartItems();
+    if (cartItems.length === 0) {
+      this.cartDialog.hide();
+      return;
+    }
+    this.cartDialog.show(cartItems, () => {});
   }
 
   private updateCartCount(): void {
@@ -101,12 +138,10 @@ class UmamusumeApp {
   private showCharacterDetail(name: string): void {
     const character = this.characters.find(c => c.name === name);
     if (!character) return;
-    
     this.grid.innerHTML = CharacterDetail.render(character);
   }
 
   private addGlobalFunctions(): void {
-    // Global function for add to cart button
     (window as any).__addToCart = (name: string) => {
       const character = this.characters.find(c => c.name === name);
       if (character) {
@@ -125,12 +160,17 @@ class UmamusumeApp {
       .animate-fadein { 
         animation: fadein 0.18s cubic-bezier(.4,2,.6,1) both; 
       }
+      .quantity-btn:active {
+        transform: scale(0.95);
+      }
+      .remove-item-btn:active {
+        transform: scale(0.95);
+      }
     `;
     document.head.appendChild(style);
   }
 }
 
-// Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   new UmamusumeApp();
 });
