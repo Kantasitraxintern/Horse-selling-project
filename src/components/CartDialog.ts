@@ -1,14 +1,16 @@
 import { CartItem } from '../types';
 import { PRICE_PER_CHARACTER } from '../utils/constants';
 
+// CartDialog: คลาสสำหรับแสดง dialog ตะกร้าสินค้า (modal)
 export class CartDialog {
-  private modal: HTMLDivElement | null = null;
-  private onClose: (() => void) | null = null;
+  private modal: HTMLDivElement | null = null; // ตัวแปรเก็บ modal element
+  private onClose: (() => void) | null = null; // callback เมื่อปิด dialog
 
   constructor() {
-    this.createModal();
+    this.createModal(); // สร้าง modal element ตอนสร้างคลาส
   }
 
+  // สร้าง modal element และเพิ่มเข้า body
   private createModal(): void {
     this.modal = document.createElement('div');
     this.modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] animate-fadein';
@@ -16,14 +18,16 @@ export class CartDialog {
     document.body.appendChild(this.modal);
   }
 
+  // แสดง dialog พร้อมข้อมูลตะกร้า
   show(cartItems: CartItem[], onClose: () => void): void {
     if (!this.modal) return;
     this.onClose = onClose;
     this.modal.style.display = 'flex';
-    this.render(cartItems);
-    this.setupEventListeners();
+    this.render(cartItems); // render HTML
+    this.setupEventListeners(); // set event ปุ่มต่างๆ
   }
 
+  // ซ่อน dialog
   hide(): void {
     if (!this.modal) return;
     this.modal.style.display = 'none';
@@ -32,10 +36,11 @@ export class CartDialog {
     }
   }
 
+  // render HTML ของ dialog ตะกร้า
   private render(cartItems: CartItem[]): void {
     if (!this.modal) return;
-    const total = cartItems.reduce((sum, item) => sum + item.qty, 0);
-    const totalPrice = total * PRICE_PER_CHARACTER;
+    const total = cartItems.reduce((sum, item) => sum + item.qty, 0); // จำนวนรวม
+    const totalPrice = total * PRICE_PER_CHARACTER; // ราคารวม
     this.modal.innerHTML = `
       <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 max-h-[90vh] overflow-hidden">
         <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6">
@@ -129,17 +134,22 @@ export class CartDialog {
     `;
   }
 
+  // set event ปุ่มต่างๆ ใน dialog (ปิด, ลบ, เพิ่ม, ลด, ลบทั้งหมด, ซื้อ)
   private setupEventListeners(): void {
     if (!this.modal) return;
+    // ปุ่มปิด dialog
     this.modal.querySelector('#closeCartDialog')?.addEventListener('click', () => this.hide());
+    // ปุ่มลบทั้งหมด
     this.modal.querySelector('#clearCartBtn')?.addEventListener('click', () => {
       if (confirm('คุณต้องการลบสินค้าทั้งหมดในตะกร้าหรือไม่?')) {
         this.dispatchEvent('clearCart');
       }
     });
+    // ปุ่มซื้อสินค้า
     this.modal.querySelector('#checkoutBtn')?.addEventListener('click', () => {
       this.dispatchEvent('checkout');
     });
+    // ปุ่มลบ/เพิ่ม/ลด จำนวนสินค้าแต่ละชิ้น
     this.modal.querySelectorAll('[data-action]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const target = e.currentTarget as HTMLElement;
@@ -150,6 +160,7 @@ export class CartDialog {
         }
       });
     });
+    // ปิด dialog เมื่อคลิกพื้นหลัง
     this.modal.addEventListener('click', (e) => {
       if (e.target === this.modal) {
         this.hide();
@@ -157,6 +168,7 @@ export class CartDialog {
     });
   }
 
+  // ยิง event ออกไปให้ main.ts จัดการ (action: remove, increase, decrease, clearCart, checkout)
   private dispatchEvent(action: string, data?: any): void {
     const event = new CustomEvent('cartAction', { 
       detail: { action, data } 
@@ -164,6 +176,7 @@ export class CartDialog {
     window.dispatchEvent(event);
   }
 
+  // ลบ modal ออกจาก DOM (ถ้าไม่ใช้แล้ว)
   destroy(): void {
     if (this.modal) {
       this.modal.remove();
