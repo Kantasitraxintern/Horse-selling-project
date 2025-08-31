@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "init-db": "node src/init_db.cjs",
-    "backend": "node src/backend.cjs",
+    "backend": "node src/backend.js",
     "frontend": "vite",
-    "dev": "npm run init-db && concurrently \"npm run backend\" \"npm run frontend\""
+    "dev": "npm run init-db && concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "devDependencies": {
     "concurrently": "^9.2.0",
