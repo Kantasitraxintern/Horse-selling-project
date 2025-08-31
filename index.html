@@ -4,31 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Umamusume · Characters (Mock)</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <!-- Tailwind CSS (dev CDN, for production use build) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐴</text></svg>" />
   </head>
   <body class="bg-gradient-to-b from-blue-50 to-white min-h-screen">
-    <header class="topbar flex items-center justify-between px-6 py-3 bg-white/80 sticky top-0 z-50 border-b border-blue-100 shadow-sm">
+    <!-- Header -->
+    <div class="topbar flex items-center justify-between px-6 py-3 bg-white/80 sticky top-0 z-50 border-b border-blue-100 shadow-sm">
       <div class="brand flex items-center gap-3">
-        <img class="brand-logo w-8 h-8" src="/vite.svg" alt="Logo" />
+        <div class="text-3xl">🐴</div>
         <span class="brand-title font-extrabold tracking-tight text-xl text-blue-900">Umamusume</span>
       </div>
       <nav class="nav flex items-center gap-6">
         <a href="#" class="nav-link font-semibold text-blue-700">Characters</a>
         <button id="cartBtn" class="relative ml-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-orange-500">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.836l.383 1.437m0 0A2.25 2.25 0 0 0 7.25 7.5h9.086a2.25 2.25 0 0 0 2.144-1.727l1.357-5.429A1.125 1.125 0 0 0 18.75 0H5.25a1.125 1.125 0 0 0-1.07.836l-.383 1.437z" />
-            <circle cx="9" cy="21" r="1.5" />
-            <circle cx="17" cy="21" r="1.5" />
-          </svg>
+          <div>🛒</div>
           <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5">0</span>
         </button>
       </nav>
-    </header>
-    <main class="container max-w-7xl mx-auto mt-10 mb-16 px-4">
-      <div class="page-head flex flex-wrap items-center justify-between gap-4 mb-8">
+    </div>
+
+    <!-- Content -->
+    <div class="container max-w-7xl mx-auto mt-10 mb-16 px-4">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
         <h1 class="text-4xl font-extrabold tracking-tight text-blue-900">Umamusume Shop</h1>
         <div class="controls flex items-center gap-3">
+          
           <label class="select-wrap relative inline-flex items-center border border-gray-200 rounded-xl bg-white px-3 py-1">
             <span class="sr-only">Sort By</span>
             <select id="sortSelect" class="appearance-none border-none outline-none bg-transparent pr-6 font-semibold text-blue-900">
@@ -44,11 +44,16 @@
           </div>
         </div>
       </div>
+
+      <!-- Item Grid -->
       <section id="grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"></section>
-    </main>
-    <footer class="footer text-center py-8 text-gray-400">
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-center py-8 text-gray-400">
       <small>Mock UI inspired by <a href="https://umamusume.com/characters/" target="_blank" rel="noreferrer" class="underline">umamusume.com</a>. For demo use only.</small>
-    </footer>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
