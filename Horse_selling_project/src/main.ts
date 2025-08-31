@@ -23,7 +23,7 @@ function loadCharactersFromCSV() {
 
 // mapping ชื่อ character -> ไฟล์รูป (เหมือนเดิม)
 const CHARACTER_IMAGES: Record<string, string> = {
-  'Agnestachyon': 'agnestachyon_list.png',
+  'Agnes tachyon': 'agnestachyon_list.png',
   'Air Groove': 'airgroove_list.png',
   'Daiwa Scarlet': 'daiwascarlet_list.png',
   'Fine Motion': 'finemotion_list.png',
