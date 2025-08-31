@@ -1,27 +1,54 @@
-name,va,color,image
-Agnestachyon,Minami Takahashi,#b2e6f2,agnestachyon_list.png
-Air Groove,Yuka Aisaka,#b6b6e6,airgroove_list.png
-Daiwa Scarlet,Chisa Kimura,#ff6aa8,daiwascarlet_list.png
-Fine Motion,Eri Suzuki,#f7e6b2,finemotion_list.png
-Fuji Kiseki,Eriko Matsui,#333e48,fujikiseki_list.png
-Gold Ship,Hitomi Ueda,#ff6464,goldship_list.png
-Grass Wonder,Rena Maeda,#6b78ff,grasswonder_list.png
-Haru Urara,Yui Watanabe,#f7b2d9,haruurara_list.png
-King Halo,Haruka Yoshimura,#b2a16b,kinghalo_list.png
-Maruzensky,Lynn,#ff6b6b,maruzensky_list.png
-Mayano Top Gun,Hina Tachibana,#f7c46b,mayanotopgun_list.png
-Mejiro McQueen,Saori Oonishi,#20d3d0,mejiromcqueen_list.png
-Mejiro Ryan,Yuuki Takada,#b2e6b2,mejiroryan_list.png
-Mihono Bourbon,Ayaka Kawase,#b2b2e6,mihonobourbon_list.png
-Nice Nature,Kaori Maeda,#b2e6a6,nicenature_list.png
-Oguri Cap,Tomoyo Takayanagi,#3da7ff,oguricap_list.png
-Rice Shower,Manaka Iwami,#b2b2d9,riceshower_01_list.png
-Sakura Bakushin O,Sayumi Suzushiro,#ffb2b2,sakurabakushino_list.png
-Silence Suzuka,Marika Kohno,#2ecc71,silencesuzuka_list.png
-Special Week,Azumi Waki,#ff8fb1,specialweek_list.png
-Super Creek,Masumi Tazawa,#b2d9e6,supercreek_list.png
-Symboli Rudolf,Azusa Tadokoro,#b2b2b2,symbolirudolf_list.png
-Taiki Shuttle,Yuka Otsubo,#7ed957,taikishuttle_list.png
-TM Opera O,Yui Horie,#b2b2f7,tmoperao_list.png
-Tokai Teio,Machico,#4aa3ff,tokaiteio_list.png
-Vodka,Ayaka Ohashi,#f5b700,vodka_list.png
+name,va,color,image,Name,VA,Catchphrase,Birthday,Height,Weight,Profile
+Agnes tachyon,Minami Takahashi,#b2e6f2,agnestachyon_list.png,,,,,,,
+Air Groove,Yuka Aisaka,#b6b6e6,airgroove_list.png,,,,,,,
+Daiwa Scarlet,Chisa Kimura,#ff6aa8,daiwascarlet_list.png,,,,,,,
+Fine Motion,Eri Suzuki,#f7e6b2,finemotion_list.png,,,,,,,
+Fuji Kiseki,Eriko Matsui,#333e48,fujikiseki_list.png,,,,,,,
+Gold Ship,Hitomi Ueda,#ff6464,goldship_list.png,,,,,,,
+Grass Wonder,Rena Maeda,#6b78ff,grasswonder_list.png,,,,,,,
+Haru Urara,Yui Watanabe,#f7b2d9,haruurara_list.png,,,,,,,
+King Halo,Haruka Yoshimura,#b2a16b,kinghalo_list.png,,,,,,,
+Maruzensky,Lynn,#ff6b6b,maruzensky_list.png,,,,,,,
+Mayano Top Gun,Hina Tachibana,#f7c46b,mayanotopgun_list.png,,,,,,,
+Mejiro McQueen,Saori Oonishi,#20d3d0,mejiromcqueen_list.png,,,,,,,
+Mejiro Ryan,Yuuki Takada,#b2e6b2,mejiroryan_list.png,,,,,,,
+Mihono Bourbon,Ayaka Kawase,#b2b2e6,mihonobourbon_list.png,,,,,,,
+Nice Nature,Kaori Maeda,#b2e6a6,nicenature_list.png,,,,,,,
+Oguri Cap,Tomoyo Takayanagi,#3da7ff,oguricap_list.png,,,,,,,
+Rice Shower,Manaka Iwami,#b2b2d9,riceshower_01_list.png,,,,,,,
+Sakura Bakushin O,Sayumi Suzushiro,#ffb2b2,sakurabakushino_list.png,,,,,,,
+Silence Suzuka,Marika Kohno,#2ecc71,silencesuzuka_list.png,,,,,,,
+Special Week,Azumi Waki,#ff8fb1,specialweek_list.png,,,,,,,
+Super Creek,Masumi Tazawa,#b2d9e6,supercreek_list.png,,,,,,,
+Symboli Rudolf,Azusa Tadokoro,#b2b2b2,symbolirudolf_list.png,,,,,,,
+Taiki Shuttle,Yuka Otsubo,#7ed957,taikishuttle_list.png,,,,,,,
+TM Opera O,Yui Horie,#b2b2f7,tmoperao_list.png,,,,,,,
+Tokai Teio,Machico,#4aa3ff,tokaiteio_list.png,,,,,,,
+Vodka,Ayaka Ohashi,#f5b700,vodka_list.png,,,,,,,
+,,,,Agnes Tachyon,Sumire Uesaka,"Life is an experiment, and we its guinea pigs. You, me, the other Umamusume—everyone!",Apr 13,159cm,Refused measurement,"Equal parts researcher and runner, Agnes Tachyon pursues the limits of speed with the power of science. She will stop at nothing to quench her pure thirst for knowledge, performing all manner of experiments on living subjects—unauthorized, dangerous experiments, at that. Her extreme tunnel vision means that without someone to support her, day-to-day necessities quickly fall to the wayside."
+,,,,Air Groove,Ruriko Aoki,"Just as my esteemed mother once did, I must train to perfection and lead others along my path!",Apr 6,165cm,Perfectly maintained,"The vice president of Tracen Academy's student council, known to the other students as the ""Empress."" The daughter of an accomplished racer, she constantly strives to live up to her mother's racing prowess and ability to guide others. To this end, she has joined her friend and confidant, Symboli Rudolf, in the student council. Despite her strict schedule, she still makes time to tend the flowers in the garden."
+,,,,Daiwa Scarlet,Chisa Kimura,Second-best won't cut it. Everything I do is for the sake of being number one!,May 13,163cm,Unclear (refused measurement),"Unyielding, strong-willed, and cheeky, she wants to be number one at everything she does. She usually plays the role of the perfect, mild-mannered honor student, but the truth is that she hates losing more than anything else. If it'll help her be number one, she'll go through any training—no matter how grueling. She sees her rather showy roommate Vodka as both her motivation and her rival."
+,,,,Fine Motion,Chinami Hashimoto,"Whether about racing or the culture itself, I must learn more about this lovely place! ♪",Jan 27,158cm,Slight increase (ate too much ramen?),"A lady of a distinguished family that is rumored to be royalty, she has come to Tracen as an exchange student from Ireland. Perhaps due to a sheltered childhood, she's very curious about everything, which can lead to some sticky situations. She hopes to make a lot of memories while at the academy."
+,,,,Fuji Kiseki,Eriko Matsui,"Don't cry, my darling pony. If there's something on your mind, speak!",Apr 15,168cm,No change,"A dashing performer who never hesitates to take another runner gently by the hand. You won't catch her flirting, however. Instead, she helps her dear ponies in her capacity as leader of Ritto Dormitory. As a runner, she hopes to captivate audiences just like her mother, a stage actress. Her ultimate stage: the Triple Crown."
+,,,,Gold Ship,Hitomi Ueda,"So long as it's fun, right? Right?!",Mar 6,170cm,Unmeasurable,"An unpredictable firebrand born with an extra helping of free spirit. She's prone to some dramatic swings in mood and motivation—one moment she could be setting up an elaborate punchline, and in the next you would be hard-pressed to get her to move. She seems to get along with anyone and everyone, but it is unclear just how she views her bonds with others. Truly, one could call her Tracen's greatest mischief-maker."
+,,,,Grass Wonder,Rena Maeda,"Noble and gallant, I march on... towards my ambitions.",Feb 18,152cm,No change,"Though born in America, her parents' love of Japanese culture influenced her to also love all things to do with the country—to the point of being called the spitting image of the ideal Japanese beauty. She speaks in a friendly manner and is easy to get along with, but her will is firm. Her determination to win is second to none. She shares a room with her close friend, El Condor Pasa."
+,,,,Haru Urara,Yukina Shuto,"I won't let losing get me down! Urara, la la la! ♪",Feb 27,140cm,Slight increase (but unphased),"She's on a losing streak... but she never gives up! While she may not be the most skilled, she experienced the excitement of racing back in Kochi and wanted more. While she completely flunked Tracen's entrance exam, her admissions officer was nonetheless impressed when they spoke by her boundless positivity—which she spreads to all the Umamusume around her."
+,,,,King Halo,Iori Saeki,I'll have everyone know that I'll be the first-rate of them all!,Apr 28,159cm,Perfect,"An Umamusume with an unbreakable spirit, King Halo is ready to overcome any challenge in order to be recognized by all as a first-class lady. Despite their strained relationship, she hopes to one day be recognized by her mother-a first-rate Umamusume and designer-and prove herself as a daughter. Yet to her gaggle of admirers at the academy, there's no doubt in their minds that she's already worthy of the title of ""King,"" and they do not hesitate to regularly hail her as such."
+,,,,Maruzensky,Lynn,"The track's like a dance floor, and I'm feelin' groovy today!",May 19,164cm,Totally tubular!,"A dashing Umamusume with a sisterly demeanor and a retro way of speaking. She is a speed demon who adores the pure joy of the wind in her face. On the road, her hot rod is the one burning rubber, but in a race, it's her own two feet tearing up the track. Despite her tremendous power, she isn't pompous, and is well-liked by everyone.
+"
+,,,,Mayano Top Gun,Mio Hoshitani,"When inspiration strikes, Maya takes flight! Copy that! ☆",Mar 24,143cm,No change,"A rambunctious young genius of an Umamusume who seeks affection from everyone she meets. Having a pilot for a father, Mayano Top Gun often mixes aviation lingo into her speech. Her tendency to obsess over whatever new and exciting thing is in front of her betrays how far she is from becoming the mature, sophisticated lady of her dreams. However, she does possess incredible intuition and an almost supernatural sense of the right thing to do in any situation."
+,,,,Mejiro McQueen,Saori Onishi,I'll bring honor and glory to the Mejiro family!,Apr 3,159cm,Slight increase (making frantic adjustments!),"Born into a family of racing legends, Mejiro McQueen is a long-distance runner who is the envy of her peers. She has class and decorum befitting her prestige, and is determined to take first at the Tenno Sho like many Mejiro racers before her. On her days off, she enjoys having afternoon tea with the many other residents of the Mejiro estate."
+,,,,Mejiro Ryan,Afumi Hashi,No problems pecs can't solve! Let's get swole together!,Apr 11,163cm,A bit bulkier from muscle growth,"A sporty girl who loves a good workout. Although born into the prestigious Mejiro family, her animated personality somewhat betrays that fact. She has something of an inferiority complex surrounding her childhood friend, Mejiro McQueen, and wishes to be as fast and pretty as her. Though physically strong, her heart is rather delicate."
+,,,,Mihono Bourbon,Ikumi Hasegawa,Target acquired. Commencing Operation: Triple Crown.,Apr 25,160cm,No change,"An Umamusume also known as the ""Cyborg."" She views the world through the lens of programming and databases, carrying out her objectives in an expressionless and robotic manner. Even so, she is not an emotionless machine—her constant training since her youth has simply resulted in less interactions with people, leading to her current personality. Underneath that robotic shell, she does indeed have feelings."
+,,,,Nice Nature,Kaori Maeda,"Yup, I'm happy with a third place finish—it's all an extra like me can ask for.",Apr 16,157cm,No change,"An Umamusume of humble background with a penchant for being pessimistic. She tends to think of herself as a supporting character, and this causes her to shy away from high expectations—this sometimes leads to imperfect performances. She has quite the knack for cooking and cleaning due to her working-class upbringing, and does so whenever she has time. She's something of a familiar face among the seniors in her town."
+,,,,Oguri Cap,Tomoyo Takayanagi,"I'm going to win this for the folks back home... But first, sustenance.",Mar 27,167cm,Slight increase (overate),"Originally hailing from the countryside, she enrolled in Tracen Academy after dominating the racing scene back home. She works hard to make her hometown proud, but try as she might, her clumsy side always comes out. At the academy, she's known as a fearsome gourmand, able to empty an entire pot of rice in the blink of an eye."
+,,,,Rice Shower,Manaka Iwami,Rice only brings misfortune to everyone... I really... really hope I can change that!,Mar 5,145cm,No change,"A timid Umamusume, she is under the impression that any misfortune befalling those around her is entirely her fault, when really, it's just bad timing. Nevertheless, she is determined to eradicate this supposed jinx of hers. She loves reading picture books in her spare time, especially ""The Blue Rose of Good Fortune."""
+,,,,Sakura Bakushin O,Sachika Misawa,"Bakushin on one! Bakushin on two! Bakushin, bakushiiin!",Apr 14,158cm,No change,"A class representative who'll rush recklessly into any situation. Once her mind is set on something, she'll bakushin dash straight to her goal—often causing more chaos than she helps resolve. She never acts out of self-righteousness, however, and tends to feel downhearted if no one is asking for her assistance. Her aptitude for sprinting is quite overwhelming, and she is confident that she can outrun anyone with unmatched speed."
+,,,,Silence Suzuka,Marika Kohno,I just want to see... that scenery from the lead.,May 1,161cm,No change,"An Umamusume seen as a prodigy who's always ahead of the pack, both figuratively and literally. She gets so absorbed with running that she comes off as aloof, but most know that she is dedicated. She is roommates with Special Week and many find themselves attracted to her authentic personality."
+,,,,Special Week,Azumi Waki,I gotta make my moms proud!  I'll become the top Umamusume in all of Japan!,May 2,158cm,Slight decrease (pre-race nerves),"Born in Hokkaido, Special Week is a bright and cheery, hardworking Umamusume. After losing her birth mother, Special Week was raised by her mother's friend. Now, she hopes to make both her moms proud by fulfilling her promise of becoming Japan's top racer. Though she may falter along the way, her indomitable spirit ensures that she runs ever forward"
+,,,,Super Creek,Kana Yuuki,"I can spoil you as much as you'd like. Aww, there, there. ♪",May 27,168cm,Slight increase (a secret as to why),"No matter how bad you were, this racer will forgive and comfort you before spoiling you rotten. Her tendency towards leniency sometimes extends to herself. She values the growth of others over even her own personal gains. She is rivals with both Oguri Cap and Tamamo Cross."
+,,,,Symboli Rudolf,Azusa Tadokoro,Fortune smiles upon the brave. Let us create a world where all Umamusume can live in bliss.,Mar 13,165cm,Almost too perfect,"Well-versed in both the ways of racing and leadership through her work leading the student body,  she serves as the evenhanded president of the student council at Tracen Academy. She seeks to be a model Umamusume, and as such, is keenly aware of the example that she sets. Her dream is to foster a new era in which all Umamusume can live in true happiness. She is especially admired by Tokai Teio."
+,,,,Taiki Shuttle,Yuka Otsubo,BANG! ☆ Who's ready for a round of sharpshootin'?!,Mar 23,172cm,Slight increase (but it's no problem!),"A cowgirl with a heart as big as her might. As friendly as they come, she's one heck of a hug machine. She tends to get lonely, however, so perhaps that's why she's one heck of a party planner too! Specializing in sprints, her powerful dash has even caught the eye of her friend, Silence Suzuka."
+,,,,T.M. Opera O,Sora Tokui,"Haaah ha ha ha! I am the star of this play, and it shall be known the world over as a masterpiece!",Mar 13,156cm,Perfect as always! (self-proclaimed),"An opera queen who's so self-absorbed, it's comical. Her mannernisms are over-the-top, and you will often hear her proclaiming her greatness in some way or other. She truly believes that those who do not know their own beauty and strength are unhappy, and she works tirelessly every day to enlighten them. She is admired by Meisho Doto."
+,,,,Tokai Teio,Machico,Here begins the legend of the invincible Teio!,Apr 20,150cm,No change,"A bright, bubbly Umamusume with a natural knack for racing. She's long looked up to the student council president, Symboli Rudolf, and this admiration serves as her ultimate motivation in becoming the number one racer. Fans can't get enough of Teio's boundless confidence, and have lovingly dubbed her upbeat march the ""Teio Step."""
+,,,,Vodka,Ayaka Ohashi,I've just gotta be the coolest to ever do it!,Apr 4,165cm,No change,"Dedicated to being the coolest, this Umamusume tries her best to act like a delinquent. She takes after her motorcycle-loving father, emulating his hobbies and attitudes down to the letter. Her grandstanding nature sees her charge daringly into any challenge, never afraid of what she might face. She has a bit of a cat-and-dog relationship with her roommate, Daiwa Scarlet."
