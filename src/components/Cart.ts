@@ -1,5 +1,7 @@
-import type { CartItem } from "./CartLogic";
+import type { CartItem } from "./CartLogic"; // ใช้เพื่อบอกชนิดข้อมูลของสินค้าในตะกร้า
 
+// ฟังก์ชันคืนค่า HTML สตริงของโมดัลตะกร้าสินค้า
+// หมายเหตุ: จงใจไม่ใส่คอมเมนต์ภายในเทมเพลตสตริงมากเกินไปเพื่อหลีกเลี่ยงผลกระทบต่อ HTML จริง
 export function renderCartModal(cartItems: CartItem[], totalPrice: number) {
   return `
     <div class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 animate-fadein">

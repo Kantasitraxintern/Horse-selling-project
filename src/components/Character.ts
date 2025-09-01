@@ -1,9 +1,12 @@
-import { Character } from "./CharacterLogic";
+import { Character } from "./CharacterLogic"; // นำเข้า type และเมธอดช่วยของตัวละคร
 
+// สร้าง DOM การ์ดตัวละครจากข้อมูลที่รับเข้ามา และคืนค่าเป็น HTMLElement
 export function CharacterCard(character: Character): HTMLElement {
-  const card = document.createElement("div");
-  card.className = "rounded-2xl shadow bg-white overflow-hidden hover:scale-105 transition";
+  const card = document.createElement("div"); // กล่องการ์ดหลัก
+  card.className = "rounded-2xl shadow bg-white overflow-hidden hover:scale-105 transition"; // สไตล์การ์ด (โค้ง/เงา/แอนิเมชัน)
 
+  // ฝังโครงสร้าง HTML ของการ์ด (ส่วนรูป + ส่วนรายละเอียด + ปุ่มเพิ่มลงตะกร้า)
+  // หมายเหตุ: ไม่ใส่คอมเมนต์ภายในแบ็กทิกเพื่อไม่ให้รบกวน HTML ที่เรนเดอร์
   card.innerHTML = `
     <div class="flex items-center justify-center overflow-hidden " 
       style="background:${character.color}">
@@ -26,5 +29,5 @@ export function CharacterCard(character: Character): HTMLElement {
     </div>
   `;
 
-  return card;
+  return card; // คืนค่าองค์ประกอบ DOM ที่พร้อมใช้งาน
 }
