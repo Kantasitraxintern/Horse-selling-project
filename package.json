@@ -1,24 +1,29 @@
 {
-  "name": "horse-selling-project",
+  "name": "horse",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+<<<<<<< Updated upstream
     "init-db": "node src/init_db.cjs",
     "backend": "node src/backend.cjs",
     "frontend": "vite",
     "dev": "npm run init-db && concurrently \"npm run backend\" \"npm run frontend\""
+=======
+    "dev": "vite --port 5175",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
-    "concurrently": "^9.2.0",
+    "@types/papaparse": "^5.3.16",
     "typescript": "~5.8.3",
     "vite": "^7.1.2"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
-    "express": "^4.21.2",
+    "csv": "^6.4.1",
     "papaparse": "^5.5.3",
-    "sqlite3": "^5.1.7",
     "tailwindcss": "^4.1.12"
   }
 }

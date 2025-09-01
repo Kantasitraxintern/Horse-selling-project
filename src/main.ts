@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import './style.css'
 import Papa from 'papaparse';
 
@@ -242,3 +243,158 @@ loadCharactersFromCSV();
 const style = document.createElement('style');
 style.innerHTML = `@keyframes fadein { from { opacity: 0; transform: scale(0.96);} to { opacity: 1; transform: scale(1);} } .animate-fadein { animation: fadein 0.18s cubic-bezier(.4,2,.6,1) both; }`;
 document.head.appendChild(style);
+=======
+//---------- Load ----------//
+import { CharacterCard } from "./components/Character";
+import type { Character } from "./components/CharacterLogic";
+import { loadCharacters } from "./components/CharacterLogic";
+
+const grid = document.getElementById("grid")!;
+let characters: Character[] = []; 
+let filtered: Character[] = []; 
+
+async function init() {
+  characters = await loadCharacters(); // โหลดข้อมูล
+  filtered = [...characters];
+  renderGrid();
+}
+
+function renderGrid() {
+  grid.innerHTML = "";
+  filtered.forEach(c => {
+    grid.appendChild(CharacterCard(c));
+  });
+  setupAddToCartListeners();
+}
+
+function setupAddToCartListeners() {
+  document.querySelectorAll(".addToCartBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const element = btn as HTMLElement;
+      const name = element.dataset.name!;
+      const va = element.dataset.va!;
+      const price = Number(element.dataset.price!);
+      const image = element.dataset.image!;
+      cart.add({ name, va, price, image });
+      updateCartCount();
+    //   console.log(name, va, price, image);
+    });
+  });
+}
+
+init()
+
+//---------- Sort ----------//
+const sortSelect = document.getElementById("sortSelect") as HTMLSelectElement;
+
+function applySort() {
+  const sortValue = sortSelect.value;
+  if (sortValue === "az") {
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortValue === "za") {
+    filtered.sort((a, b) => b.name.localeCompare(a.name));
+  }
+  renderGrid();
+}
+
+sortSelect.addEventListener("change", applySort);
+
+//---------- Search ----------//
+const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+
+function applySearch() {
+  const q = searchInput.value.toLowerCase();
+  filtered = characters.filter(c => c.name.toLowerCase().includes(q));
+  applySort();
+}
+
+searchInput.addEventListener("input", applySearch);
+
+//---------- Cart Popup ----------//
+import { Cart } from "./components/CartLogic";
+import { renderCartModal } from "./components/Cart";
+
+const cart = new Cart();
+
+function openCartModal() {
+  const modal = document.createElement("div");
+  modal.innerHTML = renderCartModal(cart.getItems(), cart.getTotalPrice());
+  document.body.appendChild(modal);
+  updateCartCount();
+
+  // increase qty
+  modal.querySelectorAll(".increaseQty").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = (btn as HTMLElement).dataset.name!;
+      cart.increase(name);
+      modal.remove();
+      openCartModal();
+    });
+  });
+
+  // decrease qty
+  modal.querySelectorAll(".decreaseQty").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = (btn as HTMLElement).dataset.name!;
+      cart.decrease(name);
+      modal.remove();
+      openCartModal();
+    });
+  });
+
+  // remove item
+  modal.querySelectorAll(".removeItem").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = (btn as HTMLElement).dataset.name!;
+      cart.remove(name);
+      modal.remove();
+      openCartModal();
+    });
+  });
+
+  // ปุ่มปิด (✕)
+  modal.querySelector("#closeCartModal")?.addEventListener("click", () => {
+    modal.remove();
+  });
+
+  // ปุ่มลบทั้งหมด
+  modal.querySelector("#closeCartModal2")?.addEventListener("click", () => {
+    if (confirm("คุณต้องการลบสินค้าทั้งหมดออกจากตะกร้าหรือไม่?")) {
+      cart.clear();
+      modal.remove();
+      openCartModal();
+    }
+  });
+
+  // ปุ่ม checkout
+  modal.querySelector("#checkoutBtn")?.addEventListener("click", () => {
+    alert("ขอบคุณสำหรับที่ซื้อสินค้า");
+    cart.clear();
+    modal.remove();
+  });
+}
+
+document.getElementById("cartBtn")?.addEventListener("click", () => {
+    openCartModal();
+});
+
+function updateCartCount() {
+  const cartCountElement = document.getElementById("cartCount");
+  if (cartCountElement) {
+    const totalItems = cart.getItems().reduce((sum, item) => sum + item.qty, 0);
+    cartCountElement.textContent = totalItems.toString();
+    
+    // ซ่อน badge ถ้าไม่มีสินค้า
+    if (totalItems === 0) {
+      cartCountElement.style.display = "none";
+    } else {
+      cartCountElement.style.display = "inline-block";
+    }
+  }
+}
+
+
+
+
+
+>>>>>>> Stashed changes
